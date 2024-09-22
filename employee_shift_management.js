@@ -34,7 +34,7 @@ const employees = [
     }
   ];
 
- // a Function to Display Employee Shift Details
+// a Function to Display Employee Shift Details
    function displayEmployeeShifts(employee) {
     console.log(`Employee: ${employee.name}`);
     employee.shifts.forEach(shift => {
@@ -42,7 +42,7 @@ const employees = [
     });
   }
 
-  // a Function to Assign a New Shift
+// a Function to Assign a New Shift
   function assignShift(employeeName, day, hours) {
     const employee = employees.find(e => e.name === employeeName);
     if (!employee) {
@@ -58,3 +58,18 @@ const employees = [
     employee.shifts.push({ day, hours });
     console.log(`Shift assigned to ${employeeName} on ${day}.`);
   }
+
+//Function to Calculate Total Hours Worked
+  function calculateTotalHours(employeeName) {
+    const employee = employees.find(e => e.name === employeeName);
+    if (!employee) {
+      return (`Employee ${employeeName} not found.`);
+      
+    }
+  
+    const totalHours = employee.shifts.reduce((acc, shift) => acc + shift.hours, 0);
+    console.log(`${employeeName} has worked a total of ${totalHours} hours.`);
+    return totalHours;
+  }
+  
+
