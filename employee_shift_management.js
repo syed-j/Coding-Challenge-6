@@ -72,4 +72,12 @@ const employees = [
     return totalHours;
   }
   
+  // List Employees with Free Days
+  function listAvailableEmployees(day) {
+    const availableEmployees = employees.filter(employee => !employee.shifts.some(shift => shift.day === day));
+    console.log(`Employees available on ${day}:`);
+    availableEmployees.forEach(employee => console.log(`  ${employee.name}`));
+  }
+  
+
 
